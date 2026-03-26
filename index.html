@@ -3,123 +3,180 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Yash Kulkarni | Cybersecurity Portfolio</title>
+<title>Yash Kulkarni | Cybersecurity Analyst</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --blue:#0ea5e9;
-  --dark-blue:#0284c7;
-  --bg:#020617;
-  --card-bg:rgba(255,255,255,0.04);
-  --text:#e2e8f0;
-  --muted:#94a3b8;
-}
 body{
-  font-family:Poppins,sans-serif;
-  background:var(--bg);
-  color:var(--text);
+  font-family:Inter,sans-serif;
+  background:#0a0f1c;
+  color:#e5e7eb;
 }
-canvas{position:fixed;top:0;left:0;z-index:-1;opacity:0.7}
 
 /* NAV */
 nav{
-  position:fixed;top:0;width:100%;
-  display:flex;justify-content:center;gap:20px;
-  padding:12px;
-  background:rgba(2,6,23,0.8);
+  position:fixed;width:100%;
+  display:flex;justify-content:center;
+  gap:25px;padding:15px;
+  background:rgba(10,15,28,0.8);
+  backdrop-filter:blur(10px);
 }
 nav a{
-  color:var(--muted);
-  text-decoration:none;
-  font-size:0.8rem;
+  color:#9ca3af;text-decoration:none;font-size:0.85rem
 }
-nav a:hover{color:var(--blue)}
+nav a:hover{color:#38bdf8}
 
 /* HEADER */
-header{text-align:center;padding:120px 20px}
+header{
+  text-align:center;
+  padding:140px 20px 80px;
+}
 .profile{
-  width:160px;height:160px;border-radius:50%;
+  width:150px;height:150px;border-radius:50%;
   overflow:hidden;margin:auto;
-  box-shadow:0 0 20px var(--blue);
+  border:3px solid #38bdf8;
 }
 .profile img{width:100%;height:100%;object-fit:cover}
-h1{font-family:Orbitron;font-size:2.5rem;margin-top:20px}
-.subtitle{color:var(--blue);margin:10px 0}
+
+h1{
+  font-size:2.8rem;
+  margin-top:20px;
+}
+.subtitle{
+  color:#38bdf8;
+  margin:10px 0;
+}
+.buttons{
+  margin-top:20px;
+}
 .btn{
-  padding:10px 20px;
-  background:var(--blue);
-  border:none;
+  padding:10px 18px;
+  margin:5px;
   border-radius:8px;
-  margin:10px;
-  text-decoration:none;
+  background:#38bdf8;
   color:#000;
-  font-weight:bold;
+  text-decoration:none;
+  font-weight:600;
 }
 .btn-outline{
-  background:none;border:1px solid var(--blue);color:var(--blue)
+  background:none;
+  border:1px solid #38bdf8;
+  color:#38bdf8;
 }
 
 /* SECTIONS */
-section{padding:50px 10%;max-width:1000px;margin:auto}
+section{
+  padding:70px 10%;
+  max-width:1000px;
+  margin:auto;
+}
+h2{
+  margin-bottom:20px;
+  border-left:4px solid #38bdf8;
+  padding-left:10px;
+}
+
+/* CARD */
 .card{
-  background:var(--card-bg);
-  padding:20px;border-radius:10px;margin-bottom:20px;
+  background:rgba(255,255,255,0.05);
+  padding:20px;
+  border-radius:12px;
+  margin-bottom:20px;
+}
+
+/* SKILLS */
+.skills{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+.skill{
+  padding:8px 14px;
+  background:#111827;
+  border-radius:8px;
+  font-size:0.8rem;
 }
 
 /* PROJECT */
-.projects{display:grid;gap:20px}
-.project-card{background:var(--card-bg);padding:20px;border-radius:10px}
-
-/* CONTACT */
-input,textarea{
-  padding:10px;border:none;border-radius:6px;width:100%
+.projects{
+  display:grid;
+  gap:20px;
 }
-form{display:flex;flex-direction:column;gap:10px;margin-top:20px}
+.project{
+  background:rgba(255,255,255,0.05);
+  padding:20px;
+  border-radius:12px;
+}
+.project a{margin-top:10px;display:inline-block}
 
-footer{text-align:center;padding:20px;color:var(--muted)}
+/* FORM */
+form{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+input,textarea{
+  padding:10px;border-radius:6px;border:none
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:20px;
+  color:#6b7280;
+}
 </style>
 </head>
 
 <body>
 
-<canvas id="matrix"></canvas>
-
 <nav>
 <a href="#about">About</a>
 <a href="#skills">Skills</a>
 <a href="#projects">Projects</a>
+<a href="#cert">Certifications</a>
 <a href="#contact">Contact</a>
 </nav>
 
 <header>
 <div class="profile">
-<img src="profile.png" alt="Yash">
+<img src="profile.png">
 </div>
 
 <h1>Yash Kulkarni</h1>
 <p class="subtitle">Cybersecurity Analyst | SOC Analyst</p>
 
+<div class="buttons">
 <a class="btn" href="mailto:yashkulkarnii8180@gmail.com">Hire Me</a>
-<a class="btn btn-outline" href="https://github.com/Yash2615" target="_blank">GitHub</a>
-<a class="btn btn-outline" href="https://www.linkedin.com/in/yash-kulkarni-6903393b" target="_blank">LinkedIn</a>
-<a class="btn" href="resume.pdf" target="_blank">Download Resume</a>
-
+<a class="btn-outline btn" href="https://github.com/Yash2615" target="_blank">GitHub</a>
+<a class="btn-outline btn" href="https://www.linkedin.com/in/yash-kulkarni-6903393b" target="_blank">LinkedIn</a>
+<a class="btn" href="resume.pdf" target="_blank">Resume</a>
+</div>
 </header>
 
 <section id="about">
 <h2>About Me</h2>
 <div class="card">
-<p>Final-year Computer Science student passionate about cybersecurity. Skilled in threat analysis, network security, and SOC operations.</p>
+<p>I am a cybersecurity enthusiast focused on threat detection, SOC operations, and secure system design. I enjoy identifying vulnerabilities and building secure solutions.</p>
 </div>
 </section>
 
 <section id="skills">
 <h2>Skills</h2>
 <div class="card">
-<p>Wireshark, Nmap, Burp Suite, Metasploit, Python, JavaScript, SQL, Network Security, SIEM</p>
+<div class="skills">
+<span class="skill">Wireshark</span>
+<span class="skill">Nmap</span>
+<span class="skill">Burp Suite</span>
+<span class="skill">Metasploit</span>
+<span class="skill">Python</span>
+<span class="skill">JavaScript</span>
+<span class="skill">SQL</span>
+<span class="skill">SIEM</span>
+<span class="skill">Network Security</span>
+</div>
 </div>
 </section>
 
@@ -128,18 +185,26 @@ footer{text-align:center;padding:20px;color:var(--muted)}
 
 <div class="projects">
 
-<div class="project-card">
-<h3>Secure Web App</h3>
-<p>Protection against SQL Injection, XSS, CSRF.</p>
-<a class="btn" href="https://github.com/Yash2615/Secure-web-app" target="_blank">View</a>
+<div class="project">
+<h3>Secure Web Application</h3>
+<p>Built secure web app preventing XSS, SQL injection, CSRF.</p>
+<a class="btn" href="https://github.com/Yash2615/Secure-web-app" target="_blank">View Project</a>
 </div>
 
-<div class="project-card">
+<div class="project">
 <h3>Network Traffic Analyzer</h3>
-<p>Detect suspicious traffic using packet analysis.</p>
-<a class="btn" href="https://github.com/Yash2615/Network-traffic-analyser" target="_blank">View</a>
+<p>Analyzes network packets to detect suspicious activity.</p>
+<a class="btn" href="https://github.com/Yash2615/Network-traffic-analyser" target="_blank">View Project</a>
 </div>
 
+</div>
+</section>
+
+<section id="cert">
+<h2>Certifications</h2>
+<div class="card">
+<p>• Certified Ethical Hacker (CEH) – (In Progress)</p>
+<p>• Cybersecurity Training – Intellipaat</p>
 </div>
 </section>
 
@@ -147,13 +212,10 @@ footer{text-align:center;padding:20px;color:var(--muted)}
 <h2>Contact</h2>
 
 <form action="https://formspree.io/f/mbdpjzbg" method="POST">
-
 <input type="text" name="name" placeholder="Your Name" required>
 <input type="email" name="email" placeholder="Your Email" required>
-<textarea name="message" placeholder="Your Message" required></textarea>
-
-<button class="btn" type="submit">Send Message</button>
-
+<textarea name="message" placeholder="Message" required></textarea>
+<button class="btn">Send Message</button>
 </form>
 
 </section>
@@ -161,40 +223,6 @@ footer{text-align:center;padding:20px;color:var(--muted)}
 <footer>
 © 2026 Yash Kulkarni | Cybersecurity Portfolio
 </footer>
-
-<script>
-const canvas = document.getElementById('matrix');
-const ctx = canvas.getContext('2d');
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-const letters = "01";
-const fontSize = 14;
-const columns = canvas.width/fontSize;
-
-const drops = [];
-for(let x=0;x<columns;x++) drops[x]=1;
-
-function draw(){
-ctx.fillStyle="rgba(0,0,0,0.05)";
-ctx.fillRect(0,0,canvas.width,canvas.height);
-
-ctx.fillStyle="#0ea5e9";
-ctx.font=fontSize+"px monospace";
-
-for(let i=0;i<drops.length;i++){
-const text=letters[Math.floor(Math.random()*letters.length)];
-ctx.fillText(text,i*fontSize,drops[i]*fontSize);
-
-if(drops[i]*fontSize>canvas.height && Math.random()>0.975)
-drops[i]=0;
-
-drops[i]++;
-}
-}
-setInterval(draw,33);
-</script>
 
 </body>
 </html>
