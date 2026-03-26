@@ -5,30 +5,35 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Yash Kulkarni | Cybersecurity Analyst</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-
 body{
-  font-family:'Space Grotesk',sans-serif;
+  font-family:Poppins,sans-serif;
   background:#020617;
   color:#e2e8f0;
+  overflow-x:hidden;
+}
+canvas{
+  position:fixed;
+  top:0;left:0;
+  z-index:-1;
+  opacity:0.6;
 }
 
 /* NAV */
 nav{
   position:fixed;width:100%;
   display:flex;justify-content:center;
-  gap:30px;padding:15px;
+  gap:25px;padding:15px;
   background:rgba(2,6,23,0.7);
   backdrop-filter:blur(10px);
   z-index:100;
 }
 nav a{
-  color:#94a3b8;
-  text-decoration:none;
-  font-size:0.85rem;
+  color:#94a3b8;text-decoration:none;
+  font-size:0.8rem;
 }
 nav a:hover{color:#38bdf8}
 
@@ -36,8 +41,7 @@ nav a:hover{color:#38bdf8}
 .hero{
   min-height:100vh;
   display:flex;flex-direction:column;
-  justify-content:center;
-  align-items:center;
+  justify-content:center;align-items:center;
   text-align:center;
 }
 .profile{
@@ -50,6 +54,7 @@ nav a:hover{color:#38bdf8}
 .profile img{width:100%;height:100%;object-fit:cover}
 
 h1{
+  font-family:Orbitron;
   font-size:3rem;
   margin-top:20px;
   background:linear-gradient(90deg,#fff,#38bdf8);
@@ -60,18 +65,18 @@ h1{
 .subtitle{
   color:#38bdf8;
   margin-top:10px;
-  font-weight:600;
 }
 
-.tagline{
+.typing{
   margin-top:10px;
   color:#94a3b8;
-  max-width:600px;
+  border-right:2px solid #38bdf8;
+  white-space:nowrap;
+  overflow:hidden;
 }
 
-.buttons{
-  margin-top:25px;
-}
+/* BUTTON */
+.buttons{margin-top:25px}
 .btn{
   padding:10px 20px;
   margin:5px;
@@ -87,15 +92,14 @@ h1{
   color:#38bdf8;
 }
 
-/* SECTION */
+/* SECTIONS */
 section{
   padding:80px 10%;
   max-width:1100px;
   margin:auto;
 }
 h2{
-  font-size:1.6rem;
-  margin-bottom:30px;
+  margin-bottom:25px;
   border-left:4px solid #38bdf8;
   padding-left:10px;
 }
@@ -107,6 +111,11 @@ h2{
   padding:25px;
   border-radius:14px;
   margin-bottom:20px;
+  transition:0.3s;
+}
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 10px 40px rgba(56,189,248,0.2);
 }
 
 /* GRID */
@@ -118,20 +127,26 @@ h2{
 
 /* SKILLS */
 .skill{
-  padding:8px 14px;
-  border-radius:8px;
-  background:#0f172a;
-  border:1px solid rgba(56,189,248,0.3);
   display:inline-block;
   margin:5px;
+  padding:8px 14px;
+  background:#0f172a;
+  border-radius:8px;
 }
 
-/* PROJECT */
-.project{
-  background:rgba(255,255,255,0.03);
-  padding:20px;
-  border-radius:12px;
-  border:1px solid rgba(56,189,248,0.2);
+/* STATS */
+.stats{
+  display:flex;
+  justify-content:space-around;
+  text-align:center;
+  flex-wrap:wrap;
+}
+.stat{
+  margin:10px;
+}
+.stat h3{
+  color:#38bdf8;
+  font-size:1.5rem;
 }
 
 /* CONTACT */
@@ -142,8 +157,8 @@ form{
 }
 input,textarea{
   padding:10px;
-  border-radius:6px;
   border:none;
+  border-radius:6px;
   background:#0f172a;
   color:#fff;
 }
@@ -159,12 +174,13 @@ footer{
 
 <body>
 
+<canvas id="matrix"></canvas>
+
 <nav>
 <a href="#about">About</a>
 <a href="#skills">Skills</a>
 <a href="#projects">Projects</a>
 <a href="#experience">Experience</a>
-<a href="#cert">Certifications</a>
 <a href="#contact">Contact</a>
 </nav>
 
@@ -176,9 +192,7 @@ footer{
 <h1>Yash Kulkarni</h1>
 <p class="subtitle">Cybersecurity Analyst | SOC Analyst</p>
 
-<p class="tagline">
-Passionate about detecting threats, securing systems, and building resilient digital infrastructures. Focused on proactive defense and real-world cybersecurity solutions.
-</p>
+<div class="typing" id="typing"></div>
 
 <div class="buttons">
 <a class="btn" href="mailto:yashkulkarnii8180@gmail.com">Hire Me</a>
@@ -188,12 +202,18 @@ Passionate about detecting threats, securing systems, and building resilient dig
 </div>
 </div>
 
+<section>
+<div class="stats">
+<div class="stat"><h3>10+</h3><p>Security Tools</p></div>
+<div class="stat"><h3>2+</h3><p>Projects</p></div>
+<div class="stat"><h3>99.9%</h3><p>System Uptime</p></div>
+</div>
+</section>
+
 <section id="about">
 <h2>About Me</h2>
 <div class="card">
-<p>
-Final-year Computer Science student specializing in cybersecurity. Skilled in threat detection, SOC operations, and secure application development. I focus on identifying vulnerabilities before attackers do and building systems that are secure by design.
-</p>
+<p>Cybersecurity enthusiast focused on threat detection, SOC operations, and securing systems. Passionate about identifying vulnerabilities and building secure infrastructures.</p>
 </div>
 </section>
 
@@ -205,11 +225,7 @@ Final-year Computer Science student specializing in cybersecurity. Skilled in th
 <span class="skill">Burp Suite</span>
 <span class="skill">Metasploit</span>
 <span class="skill">Python</span>
-<span class="skill">JavaScript</span>
-<span class="skill">SQL</span>
 <span class="skill">SIEM</span>
-<span class="skill">Threat Analysis</span>
-<span class="skill">Network Security</span>
 </div>
 </section>
 
@@ -217,20 +233,14 @@ Final-year Computer Science student specializing in cybersecurity. Skilled in th
 <h2>Projects</h2>
 <div class="grid">
 
-<div class="project">
+<div class="card">
 <h3>Secure Web Application</h3>
-<p>
-Developed a secure web application implementing protection against SQL Injection, XSS, and CSRF. Integrated authentication, validation, and session security.
-</p>
-<a class="btn" href="https://github.com/Yash2615/Secure-web-app" target="_blank">View Project</a>
+<p>Protection against SQL Injection, XSS, CSRF.</p>
 </div>
 
-<div class="project">
+<div class="card">
 <h3>Network Traffic Analyzer</h3>
-<p>
-Built a real-time network monitoring tool to analyze packets and detect anomalies, suspicious traffic, and potential threats.
-</p>
-<a class="btn" href="https://github.com/Yash2615/Network-traffic-analyser" target="_blank">View Project</a>
+<p>Detects suspicious packets and anomalies.</p>
 </div>
 
 </div>
@@ -239,19 +249,8 @@ Built a real-time network monitoring tool to analyze packets and detect anomalie
 <section id="experience">
 <h2>Experience</h2>
 <div class="card">
-<h3>CET Exam Server Manager</h3>
-<p><strong>2025 – Present</strong></p>
-<p>
-Managed secure exam infrastructure for thousands of candidates. Monitored logs, enforced access control, and ensured system stability with 99.9% uptime. Implemented real-time monitoring to prevent unauthorized access.
-</p>
-</div>
-</section>
-
-<section id="cert">
-<h2>Certifications</h2>
-<div class="card">
-<p>Certified Ethical Hacker (CEH) – In Progress</p>
-<p>Cybersecurity Training – Intellipaat</p>
+<p><strong>CET Server Manager</strong> – 2025</p>
+<p>Maintained secure infrastructure, monitored logs, ensured uptime and prevented unauthorized access.</p>
 </div>
 </section>
 
@@ -259,17 +258,73 @@ Managed secure exam infrastructure for thousands of candidates. Monitored logs, 
 <h2>Contact</h2>
 
 <form action="https://formspree.io/f/mbdpjzbg" method="POST">
-<input type="text" name="name" placeholder="Your Name" required>
-<input type="email" name="email" placeholder="Your Email" required>
+<input type="text" name="name" placeholder="Name" required>
+<input type="email" name="email" placeholder="Email" required>
 <textarea name="message" placeholder="Message" required></textarea>
-<button class="btn">Send Message</button>
+<button class="btn">Send</button>
 </form>
 
 </section>
 
 <footer>
-© 2026 Yash Kulkarni | Cybersecurity Portfolio
+© 2026 Yash Kulkarni
 </footer>
+
+<script>
+// MATRIX EFFECT
+const canvas = document.getElementById('matrix');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const letters = "01";
+const fontSize = 14;
+const columns = canvas.width/fontSize;
+const drops = [];
+
+for(let x=0;x<columns;x++) drops[x]=1;
+
+function draw(){
+ctx.fillStyle="rgba(0,0,0,0.05)";
+ctx.fillRect(0,0,canvas.width,canvas.height);
+
+ctx.fillStyle="#0ea5e9";
+ctx.font=fontSize+"px monospace";
+
+for(let i=0;i<drops.length;i++){
+const text=letters[Math.floor(Math.random()*letters.length)];
+ctx.fillText(text,i*fontSize,drops[i]*fontSize);
+
+if(drops[i]*fontSize>canvas.height && Math.random()>0.975)
+drops[i]=0;
+
+drops[i]++;
+}
+}
+setInterval(draw,33);
+
+// TYPING EFFECT
+const roles = ["Threat Detection", "SOC Operations", "Network Security", "Ethical Hacking"];
+let i=0,j=0,current='',isDeleting=false;
+
+function type(){
+if(i<roles.length){
+if(!isDeleting && j<=roles[i].length){
+current = roles[i].substring(0,j++);
+}
+else if(isDeleting && j>=0){
+current = roles[i].substring(0,j--);
+}
+
+if(j==roles[i].length) isDeleting=true;
+if(j==0){isDeleting=false;i=(i+1)%roles.length;}
+
+document.getElementById("typing").innerText=current;
+setTimeout(type, isDeleting?50:100);
+}
+}
+type();
+</script>
 
 </body>
 </html>
