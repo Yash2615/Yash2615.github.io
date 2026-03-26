@@ -5,60 +5,81 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Yash Kulkarni | Cybersecurity Analyst</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
+
 body{
-  font-family:Inter,sans-serif;
-  background:#0a0f1c;
-  color:#e5e7eb;
+  font-family:'Space Grotesk',sans-serif;
+  background:#020617;
+  color:#e2e8f0;
 }
 
 /* NAV */
 nav{
   position:fixed;width:100%;
   display:flex;justify-content:center;
-  gap:25px;padding:15px;
-  background:rgba(10,15,28,0.8);
+  gap:30px;padding:15px;
+  background:rgba(2,6,23,0.7);
   backdrop-filter:blur(10px);
+  z-index:100;
 }
 nav a{
-  color:#9ca3af;text-decoration:none;font-size:0.85rem
+  color:#94a3b8;
+  text-decoration:none;
+  font-size:0.85rem;
 }
 nav a:hover{color:#38bdf8}
 
-/* HEADER */
-header{
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;
+  justify-content:center;
+  align-items:center;
   text-align:center;
-  padding:140px 20px 80px;
 }
 .profile{
-  width:150px;height:150px;border-radius:50%;
-  overflow:hidden;margin:auto;
+  width:160px;height:160px;
+  border-radius:50%;
+  overflow:hidden;
   border:3px solid #38bdf8;
+  box-shadow:0 0 40px rgba(56,189,248,0.6);
 }
 .profile img{width:100%;height:100%;object-fit:cover}
 
 h1{
-  font-size:2.8rem;
+  font-size:3rem;
   margin-top:20px;
+  background:linear-gradient(90deg,#fff,#38bdf8);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
+
 .subtitle{
   color:#38bdf8;
-  margin:10px 0;
+  margin-top:10px;
+  font-weight:600;
 }
+
+.tagline{
+  margin-top:10px;
+  color:#94a3b8;
+  max-width:600px;
+}
+
 .buttons{
-  margin-top:20px;
+  margin-top:25px;
 }
 .btn{
-  padding:10px 18px;
+  padding:10px 20px;
   margin:5px;
   border-radius:8px;
-  background:#38bdf8;
-  color:#000;
   text-decoration:none;
   font-weight:600;
+  background:#38bdf8;
+  color:#000;
 }
 .btn-outline{
   background:none;
@@ -66,66 +87,72 @@ h1{
   color:#38bdf8;
 }
 
-/* SECTIONS */
+/* SECTION */
 section{
-  padding:70px 10%;
-  max-width:1000px;
+  padding:80px 10%;
+  max-width:1100px;
   margin:auto;
 }
 h2{
-  margin-bottom:20px;
+  font-size:1.6rem;
+  margin-bottom:30px;
   border-left:4px solid #38bdf8;
   padding-left:10px;
 }
 
 /* CARD */
 .card{
-  background:rgba(255,255,255,0.05);
-  padding:20px;
-  border-radius:12px;
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(56,189,248,0.2);
+  padding:25px;
+  border-radius:14px;
   margin-bottom:20px;
 }
 
-/* SKILLS */
-.skills{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
 }
+
+/* SKILLS */
 .skill{
   padding:8px 14px;
-  background:#111827;
   border-radius:8px;
-  font-size:0.8rem;
+  background:#0f172a;
+  border:1px solid rgba(56,189,248,0.3);
+  display:inline-block;
+  margin:5px;
 }
 
 /* PROJECT */
-.projects{
-  display:grid;
-  gap:20px;
-}
 .project{
-  background:rgba(255,255,255,0.05);
+  background:rgba(255,255,255,0.03);
   padding:20px;
   border-radius:12px;
+  border:1px solid rgba(56,189,248,0.2);
 }
-.project a{margin-top:10px;display:inline-block}
 
-/* FORM */
+/* CONTACT */
 form{
   display:flex;
   flex-direction:column;
   gap:10px;
 }
 input,textarea{
-  padding:10px;border-radius:6px;border:none
+  padding:10px;
+  border-radius:6px;
+  border:none;
+  background:#0f172a;
+  color:#fff;
 }
 
 /* FOOTER */
 footer{
   text-align:center;
   padding:20px;
-  color:#6b7280;
+  color:#64748b;
 }
 </style>
 </head>
@@ -136,11 +163,12 @@ footer{
 <a href="#about">About</a>
 <a href="#skills">Skills</a>
 <a href="#projects">Projects</a>
+<a href="#experience">Experience</a>
 <a href="#cert">Certifications</a>
 <a href="#contact">Contact</a>
 </nav>
 
-<header>
+<div class="hero">
 <div class="profile">
 <img src="profile.png">
 </div>
@@ -148,25 +176,30 @@ footer{
 <h1>Yash Kulkarni</h1>
 <p class="subtitle">Cybersecurity Analyst | SOC Analyst</p>
 
+<p class="tagline">
+Passionate about detecting threats, securing systems, and building resilient digital infrastructures. Focused on proactive defense and real-world cybersecurity solutions.
+</p>
+
 <div class="buttons">
 <a class="btn" href="mailto:yashkulkarnii8180@gmail.com">Hire Me</a>
-<a class="btn-outline btn" href="https://github.com/Yash2615" target="_blank">GitHub</a>
-<a class="btn-outline btn" href="https://www.linkedin.com/in/yash-kulkarni-6903393b" target="_blank">LinkedIn</a>
-<a class="btn" href="resume.pdf" target="_blank">Resume</a>
+<a class="btn btn-outline" href="https://github.com/Yash2615" target="_blank">GitHub</a>
+<a class="btn btn-outline" href="https://www.linkedin.com/in/yash-kulkarni-6903393b" target="_blank">LinkedIn</a>
+<a class="btn" href="resume.pdf">Resume</a>
 </div>
-</header>
+</div>
 
 <section id="about">
 <h2>About Me</h2>
 <div class="card">
-<p>I am a cybersecurity enthusiast focused on threat detection, SOC operations, and secure system design. I enjoy identifying vulnerabilities and building secure solutions.</p>
+<p>
+Final-year Computer Science student specializing in cybersecurity. Skilled in threat detection, SOC operations, and secure application development. I focus on identifying vulnerabilities before attackers do and building systems that are secure by design.
+</p>
 </div>
 </section>
 
 <section id="skills">
 <h2>Skills</h2>
 <div class="card">
-<div class="skills">
 <span class="skill">Wireshark</span>
 <span class="skill">Nmap</span>
 <span class="skill">Burp Suite</span>
@@ -175,36 +208,50 @@ footer{
 <span class="skill">JavaScript</span>
 <span class="skill">SQL</span>
 <span class="skill">SIEM</span>
+<span class="skill">Threat Analysis</span>
 <span class="skill">Network Security</span>
-</div>
 </div>
 </section>
 
 <section id="projects">
 <h2>Projects</h2>
-
-<div class="projects">
+<div class="grid">
 
 <div class="project">
 <h3>Secure Web Application</h3>
-<p>Built secure web app preventing XSS, SQL injection, CSRF.</p>
+<p>
+Developed a secure web application implementing protection against SQL Injection, XSS, and CSRF. Integrated authentication, validation, and session security.
+</p>
 <a class="btn" href="https://github.com/Yash2615/Secure-web-app" target="_blank">View Project</a>
 </div>
 
 <div class="project">
 <h3>Network Traffic Analyzer</h3>
-<p>Analyzes network packets to detect suspicious activity.</p>
+<p>
+Built a real-time network monitoring tool to analyze packets and detect anomalies, suspicious traffic, and potential threats.
+</p>
 <a class="btn" href="https://github.com/Yash2615/Network-traffic-analyser" target="_blank">View Project</a>
 </div>
 
 </div>
 </section>
 
+<section id="experience">
+<h2>Experience</h2>
+<div class="card">
+<h3>CET Exam Server Manager</h3>
+<p><strong>2025 – Present</strong></p>
+<p>
+Managed secure exam infrastructure for thousands of candidates. Monitored logs, enforced access control, and ensured system stability with 99.9% uptime. Implemented real-time monitoring to prevent unauthorized access.
+</p>
+</div>
+</section>
+
 <section id="cert">
 <h2>Certifications</h2>
 <div class="card">
-<p>• Certified Ethical Hacker (CEH) – (In Progress)</p>
-<p>• Cybersecurity Training – Intellipaat</p>
+<p>Certified Ethical Hacker (CEH) – In Progress</p>
+<p>Cybersecurity Training – Intellipaat</p>
 </div>
 </section>
 
