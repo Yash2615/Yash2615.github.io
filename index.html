@@ -5,22 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Yash Kulkarni | Cybersecurity Analyst</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{
-  font-family:Poppins,sans-serif;
+  font-family:Poppins;
   background:#020617;
   color:#e2e8f0;
   overflow-x:hidden;
 }
-canvas{
-  position:fixed;
-  top:0;left:0;
-  z-index:-1;
-  opacity:0.6;
-}
+canvas{position:fixed;z-index:-1;opacity:0.5}
 
 /* NAV */
 nav{
@@ -32,10 +27,9 @@ nav{
   z-index:100;
 }
 nav a{
-  color:#94a3b8;text-decoration:none;
-  font-size:0.8rem;
+  color:#94a3b8;text-decoration:none;font-size:0.8rem;
 }
-nav a:hover{color:#38bdf8}
+nav a.active, nav a:hover{color:#38bdf8}
 
 /* HERO */
 .hero{
@@ -45,11 +39,9 @@ nav a:hover{color:#38bdf8}
   text-align:center;
 }
 .profile{
-  width:160px;height:160px;
-  border-radius:50%;
-  overflow:hidden;
-  border:3px solid #38bdf8;
-  box-shadow:0 0 40px rgba(56,189,248,0.6);
+  width:160px;height:160px;border-radius:50%;
+  overflow:hidden;border:3px solid #38bdf8;
+  box-shadow:0 0 40px #38bdf8;
 }
 .profile img{width:100%;height:100%;object-fit:cover}
 
@@ -62,10 +54,7 @@ h1{
   -webkit-text-fill-color:transparent;
 }
 
-.subtitle{
-  color:#38bdf8;
-  margin-top:10px;
-}
+.subtitle{color:#38bdf8;margin-top:10px}
 
 .typing{
   margin-top:10px;
@@ -76,28 +65,30 @@ h1{
 }
 
 /* BUTTON */
-.buttons{margin-top:25px}
 .btn{
-  padding:10px 20px;
-  margin:5px;
-  border-radius:8px;
-  text-decoration:none;
+  padding:10px 18px;margin:5px;
+  border-radius:8px;text-decoration:none;
   font-weight:600;
-  background:#38bdf8;
-  color:#000;
+  background:#38bdf8;color:#000;
 }
 .btn-outline{
-  background:none;
-  border:1px solid #38bdf8;
-  color:#38bdf8;
+  background:none;border:1px solid #38bdf8;color:#38bdf8;
 }
 
-/* SECTIONS */
+/* SECTION */
 section{
   padding:80px 10%;
   max-width:1100px;
   margin:auto;
+  opacity:0;
+  transform:translateY(40px);
+  transition:0.6s;
 }
+section.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
 h2{
   margin-bottom:25px;
   border-left:4px solid #38bdf8;
@@ -107,10 +98,9 @@ h2{
 /* CARD */
 .card{
   background:rgba(255,255,255,0.03);
-  border:1px solid rgba(56,189,248,0.2);
-  padding:25px;
-  border-radius:14px;
+  padding:25px;border-radius:12px;
   margin-bottom:20px;
+  border:1px solid rgba(56,189,248,0.2);
   transition:0.3s;
 }
 .card:hover{
@@ -126,49 +116,21 @@ h2{
 }
 
 /* SKILLS */
-.skill{
-  display:inline-block;
-  margin:5px;
-  padding:8px 14px;
-  background:#0f172a;
-  border-radius:8px;
-}
+.skill{display:inline-block;margin:5px;padding:8px;background:#0f172a;border-radius:6px}
 
 /* STATS */
-.stats{
-  display:flex;
-  justify-content:space-around;
-  text-align:center;
-  flex-wrap:wrap;
-}
-.stat{
-  margin:10px;
-}
-.stat h3{
-  color:#38bdf8;
-  font-size:1.5rem;
-}
+.stats{display:flex;justify-content:space-around;text-align:center;flex-wrap:wrap}
+.stat h3{color:#38bdf8;font-size:1.5rem}
 
-/* CONTACT */
-form{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
+/* FORM */
+form{display:flex;flex-direction:column;gap:10px}
 input,textarea{
-  padding:10px;
-  border:none;
-  border-radius:6px;
-  background:#0f172a;
-  color:#fff;
+  padding:10px;border:none;border-radius:6px;
+  background:#0f172a;color:#fff;
 }
 
 /* FOOTER */
-footer{
-  text-align:center;
-  padding:20px;
-  color:#64748b;
-}
+footer{text-align:center;padding:20px;color:#64748b}
 </style>
 </head>
 
@@ -185,19 +147,16 @@ footer{
 </nav>
 
 <div class="hero">
-<div class="profile">
-<img src="profile.png">
-</div>
+<div class="profile"><img src="profile.png"></div>
 
 <h1>Yash Kulkarni</h1>
 <p class="subtitle">Cybersecurity Analyst | SOC Analyst</p>
-
 <div class="typing" id="typing"></div>
 
-<div class="buttons">
+<div>
 <a class="btn" href="mailto:yashkulkarnii8180@gmail.com">Hire Me</a>
-<a class="btn btn-outline" href="https://github.com/Yash2615" target="_blank">GitHub</a>
-<a class="btn btn-outline" href="https://www.linkedin.com/in/yash-kulkarni-6903393b" target="_blank">LinkedIn</a>
+<a class="btn btn-outline" href="https://github.com/Yash2615">GitHub</a>
+<a class="btn btn-outline" href="https://www.linkedin.com/in/yash-kulkarni-6903393b">LinkedIn</a>
 <a class="btn" href="resume.pdf">Resume</a>
 </div>
 </div>
@@ -206,14 +165,14 @@ footer{
 <div class="stats">
 <div class="stat"><h3>10+</h3><p>Security Tools</p></div>
 <div class="stat"><h3>2+</h3><p>Projects</p></div>
-<div class="stat"><h3>99.9%</h3><p>System Uptime</p></div>
+<div class="stat"><h3>99.9%</h3><p>Uptime</p></div>
 </div>
 </section>
 
 <section id="about">
 <h2>About Me</h2>
 <div class="card">
-<p>Cybersecurity enthusiast focused on threat detection, SOC operations, and securing systems. Passionate about identifying vulnerabilities and building secure infrastructures.</p>
+<p>Final-year Computer Science student specializing in cybersecurity with strong skills in threat detection, SOC operations, and secure application development.</p>
 </div>
 </section>
 
@@ -232,98 +191,83 @@ footer{
 <section id="projects">
 <h2>Projects</h2>
 <div class="grid">
-
 <div class="card">
 <h3>Secure Web Application</h3>
-<p>Protection against SQL Injection, XSS, CSRF.</p>
+<p>Protected against SQL injection, XSS, CSRF.</p>
 </div>
-
 <div class="card">
 <h3>Network Traffic Analyzer</h3>
-<p>Detects suspicious packets and anomalies.</p>
+<p>Detect suspicious traffic patterns.</p>
 </div>
-
 </div>
 </section>
 
 <section id="experience">
 <h2>Experience</h2>
 <div class="card">
-<p><strong>CET Server Manager</strong> – 2025</p>
-<p>Maintained secure infrastructure, monitored logs, ensured uptime and prevented unauthorized access.</p>
+<p><strong>CET Server Manager</strong></p>
+<p>Maintained secure systems, monitored logs, ensured uptime.</p>
 </div>
 </section>
 
 <section id="contact">
 <h2>Contact</h2>
-
 <form action="https://formspree.io/f/mbdpjzbg" method="POST">
-<input type="text" name="name" placeholder="Name" required>
-<input type="email" name="email" placeholder="Email" required>
-<textarea name="message" placeholder="Message" required></textarea>
+<input type="text" name="name" placeholder="Name">
+<input type="email" name="email" placeholder="Email">
+<textarea name="message" placeholder="Message"></textarea>
 <button class="btn">Send</button>
 </form>
-
 </section>
 
-<footer>
-© 2026 Yash Kulkarni
-</footer>
+<footer>© 2026 Yash Kulkarni</footer>
 
 <script>
-// MATRIX EFFECT
-const canvas = document.getElementById('matrix');
-const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-const letters = "01";
-const fontSize = 14;
-const columns = canvas.width/fontSize;
-const drops = [];
-
+// MATRIX
+const canvas=document.getElementById('matrix');
+const ctx=canvas.getContext('2d');
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+const letters="01";
+const fontSize=14;
+const columns=canvas.width/fontSize;
+const drops=[];
 for(let x=0;x<columns;x++) drops[x]=1;
-
 function draw(){
 ctx.fillStyle="rgba(0,0,0,0.05)";
 ctx.fillRect(0,0,canvas.width,canvas.height);
-
 ctx.fillStyle="#0ea5e9";
 ctx.font=fontSize+"px monospace";
-
 for(let i=0;i<drops.length;i++){
 const text=letters[Math.floor(Math.random()*letters.length)];
 ctx.fillText(text,i*fontSize,drops[i]*fontSize);
-
-if(drops[i]*fontSize>canvas.height && Math.random()>0.975)
-drops[i]=0;
-
+if(drops[i]*fontSize>canvas.height&&Math.random()>0.975) drops[i]=0;
 drops[i]++;
-}
-}
+}}
 setInterval(draw,33);
 
-// TYPING EFFECT
-const roles = ["Threat Detection", "SOC Operations", "Network Security", "Ethical Hacking"];
+// TYPING
+const roles=["Threat Detection","SOC Operations","Network Security"];
 let i=0,j=0,current='',isDeleting=false;
-
 function type(){
-if(i<roles.length){
-if(!isDeleting && j<=roles[i].length){
-current = roles[i].substring(0,j++);
-}
-else if(isDeleting && j>=0){
-current = roles[i].substring(0,j--);
-}
-
-if(j==roles[i].length) isDeleting=true;
+if(!isDeleting&&j<=roles[i].length){current=roles[i].substring(0,j++);}
+else if(isDeleting&&j>=0){current=roles[i].substring(0,j--);}
+if(j==roles[i].length)isDeleting=true;
 if(j==0){isDeleting=false;i=(i+1)%roles.length;}
-
 document.getElementById("typing").innerText=current;
-setTimeout(type, isDeleting?50:100);
-}
-}
+setTimeout(type,isDeleting?50:100);}
 type();
+
+// SCROLL ANIMATION
+const sections=document.querySelectorAll("section");
+window.addEventListener("scroll",()=>{
+sections.forEach(sec=>{
+const top=sec.getBoundingClientRect().top;
+if(top<window.innerHeight-100){
+sec.classList.add("show");
+}
+});
+});
 </script>
 
 </body>
