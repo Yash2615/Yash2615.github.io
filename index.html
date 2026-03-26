@@ -4,542 +4,206 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Yash Kulkarni | Cybersecurity Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --blue:#0ea5e9;
-  --dark-blue:#0284c7;
-  --bg:#020617;
-  --card-bg:rgba(255,255,255,0.04);
-  --text:#e2e8f0;
-  --muted:#94a3b8;
-}
-html{scroll-behavior:smooth}
-body{
-  font-family:Poppins,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  overflow-x:hidden;
-}
-canvas{
-  position:fixed;
-  top:0;left:0;
-  z-index:-1;
-  opacity:0.7;
+body {
+    margin: 0;
+    font-family: monospace;
+    background: #0a0f1c;
+    color: #00ffcc;
 }
 
-/* NAV */
-nav{
-  position:fixed;top:0;left:0;right:0;
-  z-index:100;
-  display:flex;
-  justify-content:center;
-  gap:30px;
-  padding:14px 20px;
-  background:rgba(2,6,23,0.8);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid rgba(14,165,233,0.15);
-}
-nav a{
-  color:var(--muted);
-  text-decoration:none;
-  font-size:0.85rem;
-  font-weight:600;
-  letter-spacing:0.05em;
-  text-transform:uppercase;
-  transition:color 0.2s;
-}
-nav a:hover{color:var(--blue)}
-
-/* HEADER */
-header{
-  text-align:center;
-  padding:130px 20px 80px;
-  position:relative;
-}
-.profile{
-  width:180px;height:180px;
-  border-radius:50%;
-  overflow:hidden;
-  margin:0 auto 28px;
-  box-shadow:0 0 0 3px var(--blue), 0 0 50px rgba(14,165,233,0.5);
-  transition:0.5s;
-  cursor:pointer;
-}
-.profile:hover{
-  transform:scale(1.08) rotateY(10deg);
-  box-shadow:0 0 0 4px var(--blue), 0 0 80px rgba(14,165,233,0.7);
-}
-.profile img{width:100%;height:100%;object-fit:cover;object-position:top}
-
-h1{
-  font-family:Orbitron,sans-serif;
-  font-size:clamp(2rem,6vw,3.2rem);
-  font-weight:800;
-  letter-spacing:0.05em;
-  background:linear-gradient(135deg,#fff 30%,var(--blue));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  background-clip:text;
-}
-.subtitle{
-  color:var(--blue);
-  margin:10px 0 18px;
-  font-size:1rem;
-  letter-spacing:0.08em;
-  font-weight:600;
-}
-.typing-wrap{
-  display:flex;
-  justify-content:center;
-  height:28px;
-  overflow:hidden;
-}
-.typing{
-  color:var(--muted);
-  font-size:0.95rem;
-  border-right:2px solid var(--blue);
-  white-space:nowrap;
-  overflow:hidden;
-  animation:typing 3.5s steps(45,end) forwards, blink .7s step-end infinite;
-}
-@keyframes typing{from{width:0}to{width:100%}}
-@keyframes blink{50%{border-color:transparent}}
-
-.header-btns{
-  display:flex;
-  justify-content:center;
-  gap:14px;
-  margin-top:28px;
-  flex-wrap:wrap;
-}
-.btn{
-  display:inline-block;
-  padding:10px 22px;
-  border-radius:10px;
-  background:var(--blue);
-  color:#000;
-  font-weight:700;
-  text-decoration:none;
-  font-size:0.88rem;
-  transition:0.2s;
-}
-.btn:hover{background:var(--dark-blue);transform:translateY(-2px)}
-.btn-outline{
-  background:transparent;
-  border:2px solid var(--blue);
-  color:var(--blue);
-}
-.btn-outline:hover{background:rgba(14,165,233,0.1);transform:translateY(-2px)}
-
-/* SECTIONS */
-section{padding:60px 8%;max-width:1100px;margin:auto}
-
-.section-label{
-  display:inline-block;
-  font-size:0.72rem;
-  letter-spacing:0.15em;
-  text-transform:uppercase;
-  color:var(--blue);
-  margin-bottom:8px;
-  font-weight:600;
-}
-h2{
-  font-family:Orbitron,sans-serif;
-  font-size:1.6rem;
-  color:#fff;
-  margin-bottom:28px;
-  position:relative;
-  padding-bottom:12px;
-}
-h2::after{
-  content:'';
-  position:absolute;
-  bottom:0;left:0;
-  width:50px;height:2px;
-  background:var(--blue);
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 40px;
+    background: #050a14;
 }
 
-/* CARDS */
-.card{
-  background:var(--card-bg);
-  padding:24px 28px;
-  border-radius:16px;
-  margin-bottom:20px;
-  backdrop-filter:blur(12px);
-  border:1px solid rgba(14,165,233,0.1);
-  transition:0.3s;
-}
-.card:hover{
-  transform:translateY(-6px);
-  border-color:rgba(14,165,233,0.35);
-  box-shadow:0 8px 32px rgba(14,165,233,0.15);
-}
-.card p{color:var(--muted);line-height:1.7}
-
-/* SKILLS */
-.skills-grid{
-  display:flex;flex-wrap:wrap;gap:10px;
-}
-.skill-tag{
-  padding:8px 16px;
-  background:rgba(14,165,233,0.08);
-  border:1px solid rgba(14,165,233,0.25);
-  border-radius:10px;
-  font-size:0.85rem;
-  color:var(--blue);
-  font-weight:600;
-  transition:0.2s;
-}
-.skill-tag:hover{
-  background:rgba(14,165,233,0.18);
-  transform:translateY(-2px);
+nav a {
+    color: #00ffcc;
+    text-decoration: none;
+    margin-left: 20px;
 }
 
-/* SKILL CATEGORIES */
-.skill-category{
-  margin-bottom:20px;
-}
-.skill-category h4{
-  color:var(--muted);
-  font-size:0.78rem;
-  letter-spacing:0.1em;
-  text-transform:uppercase;
-  margin-bottom:10px;
+/* Hero */
+.hero {
+    text-align: center;
+    padding: 80px 20px;
 }
 
-/* PROJECTS */
-.projects{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:20px;
-}
-.project-card{
-  background:var(--card-bg);
-  border:1px solid rgba(14,165,233,0.1);
-  border-radius:16px;
-  padding:24px;
-  backdrop-filter:blur(12px);
-  transition:0.3s;
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-}
-.project-card:hover{
-  transform:translateY(-8px);
-  border-color:rgba(14,165,233,0.4);
-  box-shadow:0 12px 40px rgba(14,165,233,0.2);
-}
-.project-card h3{font-size:1.05rem;color:#fff}
-.project-card p{color:var(--muted);font-size:0.88rem;line-height:1.6;flex:1}
-.project-tags{display:flex;gap:6px;flex-wrap:wrap}
-.tag{
-  font-size:0.7rem;
-  padding:3px 10px;
-  border-radius:20px;
-  background:rgba(14,165,233,0.1);
-  color:var(--blue);
-  border:1px solid rgba(14,165,233,0.2);
+.hero img {
+    width: 150px;
+    border-radius: 50%;
+    border: 3px solid #00ffcc;
+    margin-bottom: 20px;
 }
 
-/* EXPERIENCE */
-.exp-card{
-  display:flex;
-  gap:20px;
-  align-items:flex-start;
-}
-.exp-icon{
-  font-size:2rem;
-  min-width:50px;
-  text-align:center;
-}
-.exp-content h3{color:#fff;font-size:1rem;margin-bottom:6px}
-.exp-content p{color:var(--muted);font-size:0.9rem;line-height:1.6}
-.exp-date{
-  font-size:0.75rem;
-  color:var(--blue);
-  font-weight:600;
-  margin-bottom:6px;
-  letter-spacing:0.05em;
+/* Typing Effect */
+.typing {
+    border-right: 2px solid #00ffcc;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    animation: typing 4s steps(30, end) forwards;
 }
 
-/* CONTACT */
-.contact-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:16px;
-  margin-bottom:24px;
-}
-.contact-item{
-  background:var(--card-bg);
-  border:1px solid rgba(14,165,233,0.1);
-  border-radius:14px;
-  padding:20px;
-  display:flex;
-  align-items:center;
-  gap:14px;
-  transition:0.2s;
-}
-.contact-item:hover{
-  border-color:rgba(14,165,233,0.3);
-  transform:translateY(-3px);
-}
-.contact-icon{font-size:1.5rem}
-.contact-info{display:flex;flex-direction:column}
-.contact-label{font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em}
-.contact-value{font-size:0.9rem;color:#fff;font-weight:600}
-
-/* FOOTER */
-footer{
-  text-align:center;
-  padding:30px 20px;
-  border-top:1px solid rgba(14,165,233,0.1);
-  color:var(--muted);
-  font-size:0.85rem;
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
 }
 
-/* STATUS BADGE */
-.status-badge{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  background:rgba(34,197,94,0.1);
-  border:1px solid rgba(34,197,94,0.3);
-  color:#4ade80;
-  padding:6px 16px;
-  border-radius:20px;
-  font-size:0.8rem;
-  font-weight:600;
-  margin-bottom:20px;
-  letter-spacing:0.05em;
-}
-.dot{
-  width:8px;height:8px;
-  background:#4ade80;
-  border-radius:50%;
-  animation:pulse 1.5s infinite;
-}
-@keyframes pulse{
-  0%,100%{opacity:1}
-  50%{opacity:0.3}
+/* Section */
+section {
+    padding: 50px 20px;
+    max-width: 1000px;
+    margin: auto;
 }
 
-/* RESPONSIVE */
-@media(max-width:600px){
-  nav{gap:16px}
-  nav a{font-size:0.75rem}
-  section{padding:50px 5%}
-  .exp-card{flex-direction:column;gap:10px}
+/* Cards */
+.card {
+    background: #111827;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* Projects */
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* Buttons */
+button, .btn {
+    background: #00ffcc;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+}
+
+/* Form */
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: none;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #050a14;
 }
 </style>
+
 </head>
 <body>
 
-<canvas id="matrix"></canvas>
-
 <nav>
-  <a href="#about">About</a>
-  <a href="#skills">Skills</a>
-  <a href="#projects">Projects</a>
-  <a href="#experience">Experience</a>
-  <a href="#contact">Contact</a>
+    <h3>Yash</h3>
+    <div>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </div>
 </nav>
 
-<header>
-  <div class="profile">
-    <img src="IMG_20260321_114956.png" alt="Yash Kulkarni">
-  </div>
-  <div class="status-badge"><div class="dot"></div> Open to Opportunities</div>
-  <h1>Yash Kulkarni</h1>
-  <p class="subtitle">Cybersecurity Analyst &nbsp;|&nbsp; SOC Analyst</p>
-  <div class="typing-wrap">
-    <div class="typing">Protecting Systems • Detecting Threats • Securing Applications</div>
-  </div>
-  <div class="header-btns">
-    <a class="btn" href="mailto:yashkulkarnii8180@gmail.com">📧 Hire Me</a>
-    <a class="btn btn-outline" href="https://github.com/Yash2615" target="_blank">GitHub</a>
-    <a class="btn btn-outline" href="https://linkedin.com" target="_blank">LinkedIn</a>
-  </div>
-</header>
+<div class="hero">
+    <!-- PROFILE IMAGE -->
+    <img src="profile.jpg" alt="Yash Kulkarni">
+
+    <h1 class="typing">Yash Kulkarni</h1>
+    <h3>Cybersecurity Analyst | SOC Enthusiast</h3>
+    <p>Securing systems. Detecting threats. Building safe applications.</p>
+
+    <!-- RESUME BUTTON -->
+    <a href="Yash_Resume.pdf" class="btn" download>Download Resume</a>
+</div>
 
 <section id="about">
-  <span class="section-label">Who I Am</span>
-  <h2>About Me</h2>
-  <div class="card">
-    <p>Final-year Computer Science student passionate about cybersecurity. Skilled in threat analysis, secure development, and network monitoring. I enjoy identifying vulnerabilities before attackers do — and building systems that are resilient by design. Actively seeking <strong style="color:#fff">SOC Analyst / Cybersecurity roles</strong> where I can make an immediate impact.</p>
-  </div>
+    <h2>About Me</h2>
+    <div class="card">
+        Final-year cybersecurity student skilled in Network Security, SIEM, Threat Analysis, Vulnerability Assessment, and Ethical Hacking.
+    </div>
 </section>
 
-<section id="skills">
-  <span class="section-label">What I Know</span>
-  <h2>Skills</h2>
-  <div class="card">
-    <div class="skill-category">
-      <h4>Security Tools</h4>
-      <div class="skills-grid">
-        <span class="skill-tag">Wireshark</span>
-        <span class="skill-tag">Burp Suite</span>
-        <span class="skill-tag">Nmap</span>
-        <span class="skill-tag">Metasploit</span>
-      </div>
+<section>
+    <h2>Skills</h2>
+    <div class="card">
+        Kali Linux • Wireshark • Burp Suite • Nmap • Python • JavaScript
     </div>
-    <div class="skill-category" style="margin-top:18px">
-      <h4>Core Domains</h4>
-      <div class="skills-grid">
-        <span class="skill-tag">Network Security</span>
-        <span class="skill-tag">SIEM</span>
-        <span class="skill-tag">Threat Analysis</span>
-        <span class="skill-tag">SOC Operations</span>
-        <span class="skill-tag">Penetration Testing</span>
-      </div>
-    </div>
-    <div class="skill-category" style="margin-top:18px">
-      <h4>Programming</h4>
-      <div class="skills-grid">
-        <span class="skill-tag">Python</span>
-        <span class="skill-tag">JavaScript</span>
-        <span class="skill-tag">Bash</span>
-        <span class="skill-tag">SQL</span>
-      </div>
-    </div>
-  </div>
 </section>
 
 <section id="projects">
-  <span class="section-label">What I've Built</span>
-  <h2>Projects</h2>
-  <div class="projects">
-    <div class="project-card">
-      <div style="font-size:2rem">🔐</div>
-      <h3>Secure Web Application</h3>
-      <p>Hardened web app with protection against SQL Injection, XSS, and CSRF. Implements secure authentication, input validation, and encrypted sessions.</p>
-      <div class="project-tags">
-        <span class="tag">Python</span>
-        <span class="tag">SQL</span>
-        <span class="tag">OWASP</span>
-      </div>
-      <a class="btn" href="https://github.com/Yash2615/Secure-web-app" target="_blank">View on GitHub →</a>
-    </div>
-    <div class="project-card">
-      <div style="font-size:2rem">🌐</div>
-      <h3>Network Traffic Analyzer</h3>
-      <p>Real-time packet inspection tool to detect suspicious activity, port scans, and anomalous traffic patterns using live packet capture.</p>
-      <div class="project-tags">
-        <span class="tag">Python</span>
-        <span class="tag">Wireshark</span>
-        <span class="tag">Scapy</span>
-      </div>
-      <a class="btn" href="https://github.com/Yash2615/Network-traffic-analyser" target="_blank">View on GitHub →</a>
-    </div>
-  </div>
-</section>
+    <h2>Projects</h2>
+    <div class="projects">
 
-<section id="experience">
-  <span class="section-label">My Journey</span>
-  <h2>Experience</h2>
-  <div class="card">
-    <div class="exp-card">
-      <div class="exp-icon">🖥️</div>
-      <div class="exp-content">
-        <div class="exp-date">2025 – Present</div>
-        <h3>CET Exam Server Manager</h3>
-        <p>Secured exam infrastructure handling thousands of candidates. Monitored system logs for anomalies, enforced access control policies, and maintained 99.9% uptime during critical exam windows. Implemented real-time threat detection to prevent unauthorized access.</p>
-      </div>
+        <div class="card">
+            <h3>Secure Web Application</h3>
+            <p>Secure login system with protection against web vulnerabilities.</p>
+            <a href="https://github.com/Yash2615" target="_blank">View Code</a>
+        </div>
+
+        <div class="card">
+            <h3>Network Traffic Analyzer</h3>
+            <p>Analyzed network packets using Wireshark to detect suspicious activities.</p>
+            <a href="https://github.com/Yash2615" target="_blank">View Code</a>
+        </div>
+
+        <div class="card">
+            <h3>Expense Tracker</h3>
+            <p>Secure expense tracking application with authentication.</p>
+        </div>
+
+        <div class="card">
+            <h3>Smart Farming AI</h3>
+            <p>Object detection-based crop monitoring system.</p>
+        </div>
+
     </div>
-  </div>
 </section>
 
 <section id="contact">
-  <span class="section-label">Let's Connect</span>
-  <h2>Hire Me</h2>
-  <div class="contact-grid">
-    <div class="contact-item">
-      <div class="contact-icon">📧</div>
-      <div class="contact-info">
-        <span class="contact-label">Email</span>
-        <span class="contact-value">yashkulkarnii8180@gmail.com</span>
-      </div>
+    <h2>Contact Me</h2>
+    <div class="card">
+
+        <!-- CONTACT FORM -->
+        <form action="https://formspree.io/f/mbdpjzbg" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <br><br>
+            <button type="submit">Send Message</button>
+        </form>
+
+        <br>
+
+        <p>Email: yashkulkarnii8180@gmail.com</p>
+        <p>
+            GitHub: <a href="https://github.com/Yash2615" target="_blank">Visit</a>
+        </p>
+        <p>
+            LinkedIn: <a href="https://www.linkedin.com/in/yash-kulkarni-6903393b3" target="_blank">Visit</a>
+        </p>
+
     </div>
-    <div class="contact-item">
-      <div class="contact-icon">📍</div>
-      <div class="contact-info">
-        <span class="contact-label">Location</span>
-        <span class="contact-value">Maharashtra, India</span>
-      </div>
-    </div>
-    <div class="contact-item">
-      <div class="contact-icon">💼</div>
-      <div class="contact-info">
-        <span class="contact-label">Status</span>
-        <span class="contact-value" style="color:#4ade80">Available for Work</span>
-      </div>
-    </div>
-  </div>
-  <div style="display:flex;gap:14px;flex-wrap:wrap">
-    <a class="btn" href="mailto:yashkulkarnii8180@gmail.com">Send Email</a>
-    <a class="btn btn-outline" href="https://linkedin.com" target="_blank">LinkedIn Profile</a>
-    <a class="btn btn-outline" href="https://github.com/Yash2615" target="_blank">GitHub</a>
-  </div>
 </section>
 
 <footer>
-  © 2026 Yash Kulkarni &nbsp;|&nbsp; Cybersecurity Portfolio &nbsp;|&nbsp; Built with passion 🔐
+    © 2026 Yash Kulkarni | Cybersecurity Portfolio
 </footer>
 
-<script>
-// Matrix rain
-const canvas = document.getElementById('matrix');
-const ctx = canvas.getContext('2d');
-function resize(){
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-}
-resize();
-window.addEventListener('resize', resize);
-
-const letters = '01アイウエオカキクケコ';
-const fontSize = 13;
-let columns = Math.floor(canvas.width / fontSize);
-let drops = Array(columns).fill(1);
-
-function draw(){
-  ctx.fillStyle = 'rgba(2,6,23,0.05)';
-  ctx.fillRect(0,0,canvas.width,canvas.height);
-  ctx.fillStyle = '#0ea5e9';
-  ctx.font = fontSize + 'px monospace';
-  columns = Math.floor(canvas.width / fontSize);
-  if(drops.length < columns) drops = [...drops, ...Array(columns - drops.length).fill(1)];
-  drops.forEach((y,i)=>{
-    const text = letters[Math.floor(Math.random()*letters.length)];
-    ctx.fillStyle = i % 3 === 0 ? '#38bdf8' : '#0ea5e9';
-    ctx.fillText(text, i*fontSize, y*fontSize);
-    if(y*fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
-    drops[i]++;
-  });
-}
-setInterval(draw, 35);
-
-// Smooth scroll for nav
-document.querySelectorAll('nav a').forEach(a => {
-  a.addEventListener('click', e => {
-    e.preventDefault();
-    document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'});
-  });
-});
-
-// Highlight active nav on scroll
-const sections = document.querySelectorAll('section');
-const navLinks = document.querySelectorAll('nav a');
-window.addEventListener('scroll', ()=>{
-  let current = '';
-  sections.forEach(s=>{
-    if(window.scrollY >= s.offsetTop - 120) current = s.id;
-  });
-  navLinks.forEach(a=>{
-    a.style.color = a.getAttribute('href') === '#'+current ? '#0ea5e9' : '';
-  });
-});
-</script>
 </body>
 </html>
