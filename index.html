@@ -22,6 +22,65 @@
       --danger: #ef4444;
     }
 
+    /* PROFILE PHOTO */
+    .profile-wrap {
+      position: relative;
+      width: 220px;
+      height: 220px;
+      flex-shrink: 0;
+    }
+
+    .profile-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      z-index: 0;
+    }
+
+    .profile-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: var(--bg);
+      z-index: 1;
+    }
+
+    .profile-img {
+      position: absolute;
+      inset: 4px;
+      border-radius: 50%;
+      object-fit: cover;
+      width: calc(100% - 8px);
+      height: calc(100% - 8px);
+      z-index: 2;
+      filter: grayscale(20%);
+    }
+
+    .profile-badge {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      z-index: 3;
+      background: var(--accent3);
+      color: var(--bg);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem;
+      font-weight: 600;
+      padding: 0.25rem 0.5rem;
+      border-radius: 2px;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-right-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     html { scroll-behavior: smooth; }
@@ -707,21 +766,28 @@
 <section class="hero" id="about">
   <div class="hero-grid">
     <div>
-      <div class="hero-eyebrow">Cybersecurity Analyst · DBATU 2026</div>
+      <div class="hero-eyebrow">Cybersecurity Analyst · DBATU Graduate 2026</div>
       <h1>
         <span class="name-highlight">Yash</span><br>Kulkarni
       </h1>
       <p class="hero-desc">
-        Final-year CS student specializing in threat detection, incident response, and SIEM. Currently building a SOAR Incident Containment Engine at Infotact Solutions — threat intel, live enrichment, real security problems.
+        B.Tech CS graduate (2026) specializing in threat detection, incident response, and SIEM. Currently building a SOAR Incident Containment Engine at Infotact Solutions — threat intel, live enrichment, real security problems.
       </p>
       <div class="hero-cta">
         <a href="#projects" class="btn-primary">View Projects →</a>
+        <a href="resume.pdf" class="btn-outline" target="_blank" download>⬇ Resume</a>
         <a href="mailto:yashkulkarnii8180@gmail.com" class="btn-outline">Get in Touch</a>
       </div>
     </div>
 
-    <!-- Terminal -->
-    <div class="terminal">
+    <!-- Profile + Terminal -->
+    <div class="hero-right-col">
+      <div class="profile-wrap">
+        <img src="profile.png" alt="Yash Kulkarni" class="profile-img" />
+        <span class="profile-badge">GRAD 2026</span>
+      </div>
+
+      <div class="terminal" style="width:100%">
       <div class="terminal-header">
         <span class="dot dot-red"></span>
         <span class="dot dot-yellow"></span>
@@ -744,6 +810,7 @@
         <div><span class="t-key">}</span><span class="cursor"></span></div>
       </div>
     </div>
+    </div><!-- end hero-right-col -->
   </div>
 </section>
 
